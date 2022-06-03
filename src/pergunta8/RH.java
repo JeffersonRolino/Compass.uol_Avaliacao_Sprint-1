@@ -24,7 +24,8 @@ public class RH {
         Funcionario[] colaboradores = new Funcionario[Quantidade_de_funcionarios];
 
         for(int f = 0; f < Quantidade_de_funcionarios; f++){
-
+            System.out.println("---------------------------------------------------");
+            System.out.println("Cadastrando funcionario " + (f + 1));
             System.out.println("Por favor, informe o Primeiro Nome do Funcionario:");
             String nome = scanner.next();
             System.out.println("Por favor, informe o Sobrenome do Funcionario:");
@@ -32,28 +33,28 @@ public class RH {
             System.out.println("Por favor, informe o Salario Base do Funcionario:");
             double salarioBase = scanner.nextDouble();
             colaboradores[f] = new Funcionario(nome, sobrenome, salarioBase);
-//            Funcionario funcionario = new Funcionario(nome, sobrenome, salarioBase);
-//            System.out.println("Funcionario: " + nome + " " + sobrenome + " com salario " + salarioBase + " cadastrado com sucesso!");
         }
 
         setFuncionarios(colaboradores);
     }
 
     public void imprimirRelatorio(){
-        System.out.println("Relatorio de Funcionarios");
+        System.out.print("\n");
+        System.out.println("---------------------------------------");
+        System.out.println("\tRelatorio de Funcionarios");
+        System.out.println("---------------------------------------");
         for(Funcionario f : this.funcionarios)
         {
-            System.out.printf("Funcionario: %s %s com salario de R$%.2f\n", f.getNome(), f.getSobrenome(), f.getSalarioBase());
+            System.out.printf("Funcionario: %s %s.\n", f.getNome(), f.getSobrenome());
+            System.out.printf("Salario: R$%.2f\n", f.getSalarioBase());
+            if(f.getModificadorDeSalario() > 0)
+            {
+                System.out.printf("Bonus: R$%.2f\n", f.getModificadorDeSalario());
+            } else {
+                System.out.printf("Desconto: R$%.2f\n", f.getModificadorDeSalario() * -1);
+            }
+            System.out.println("Salario Liquido: " + f.getSalarioLiquido());
+            System.out.println("---------------------------------------");
         }
     }
-
-//    public double validarEntradaDeSalario(Scanner sc){
-//        if(sc.hasNextDouble()){
-//            return sc.nextDouble();
-//        } else {
-//            System.out.println("Valor Invalido, por favor informe um numero...");
-//            validarEntradaDeSalario(sc);
-//        }
-//        return 0;
-//    }
 }

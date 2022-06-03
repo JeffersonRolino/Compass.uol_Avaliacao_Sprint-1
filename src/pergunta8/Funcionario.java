@@ -8,18 +8,13 @@ public class Funcionario {
     private double modificadorDeSalario;
     private double salarioLiquido;
 
-    public Funcionario(){
-
-    }
-
     // Overloading o Construtor Base
     public Funcionario(String _nome, String _sobrenome, double _salarioBase){
         this.nome = _nome;
         this.sobrenome = _sobrenome;
         this.salarioBase = _salarioBase;
+        calcularSalarioFinal();
     }
-
-
 
     public String getNome() {
         return this.nome;
@@ -60,4 +55,16 @@ public class Funcionario {
     public void setSalarioLiquido(double _salarioLiquido) {
         this.salarioLiquido = _salarioLiquido;
     }
+
+    private void calcularSalarioFinal(){
+        if(this.salarioBase <= 1000){
+            this.modificadorDeSalario = (this.salarioBase / 100 * 20);
+        } else if(this.salarioBase > 1000 && this.salarioBase <= 2000){
+            this.modificadorDeSalario = (this.salarioBase / 100 * 10);
+        } else {
+            this.modificadorDeSalario = ((this.salarioBase / 100 * 10) * -1);
+        }
+        this.salarioLiquido = this.salarioBase + this.modificadorDeSalario;
+    }
+
 }
