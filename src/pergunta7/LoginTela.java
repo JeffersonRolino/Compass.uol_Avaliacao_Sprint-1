@@ -36,8 +36,8 @@ public class LoginTela implements ActionListener {
         usuarioLoginLabel.setBounds(30,100,75,25);
         usuarioSenhaLabel.setBounds(30,150,75,25);
 
-        mensagemLabel.setBounds(30,250,250,35);
-        mensagemLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 20));
+        mensagemLabel.setBounds(45,250,250,30);
+        mensagemLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 18));
         mensagemLabel.setHorizontalAlignment(JTextField.CENTER);
 
         usuarioLoginCampo.setBounds(80,100,200,25);
@@ -66,7 +66,7 @@ public class LoginTela implements ActionListener {
 
         // Configurando Tela...
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        tela.setSize(400,600);
+        tela.setSize(400,400);
         tela.setLayout(null);
         tela.setVisible(true);
     }
@@ -100,6 +100,7 @@ public class LoginTela implements ActionListener {
         if(e.getSource() == buttonLimpar){
             usuarioLoginCampo.setText("");
             usuarioSenhaCampo.setText("");
+            mensagemLabel.setText("");
         }
     }
 
